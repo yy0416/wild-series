@@ -13,9 +13,6 @@ class Category
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $GeneratedValue = null;
-
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
@@ -24,17 +21,7 @@ class Category
         return $this->id;
     }
 
-    public function getGeneratedValue(): ?int
-    {
-        return $this->GeneratedValue;
-    }
 
-    public function setGeneratedValue(int $GeneratedValue): self
-    {
-        $this->GeneratedValue = $GeneratedValue;
-
-        return $this;
-    }
 
     public function getName(): ?string
     {
