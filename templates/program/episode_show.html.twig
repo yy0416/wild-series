@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+	{# Ajoutez d'autres informations spécifiques à la saison #}
+
+	<h2>Episodes</h2>
+	<ul>
+		{% for episode in season.episodes %}
+			<h1>{{ episode.getSeasonId().getProgramId().getTitle() }}</h1>
+			<h2>Saison
+				{{ episode.getSeasonId().getNumber() }}</h2>
+			<h3>Épisode
+				{{ episode.getNumber() }}
+				:
+				{{ episode.getTitle() }}</h3>
+			<p>{{ episode.getSynopsis() }}</p>
+		{% endfor %}
+	</ul>
+{% endblock %}
