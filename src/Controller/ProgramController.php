@@ -23,8 +23,9 @@ class ProgramController extends AbstractController
         $form =  $this->createForm(ProgramType::class, $program);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $programRepository->save($program, true);
+            $this->addFlash('success', 'The new program has been created');
             return $this->redirectToRoute('program_index');
         }
 
